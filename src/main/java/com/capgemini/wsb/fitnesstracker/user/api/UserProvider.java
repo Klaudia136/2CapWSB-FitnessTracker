@@ -1,5 +1,6 @@
 package com.capgemini.wsb.fitnesstracker.user.api;
-
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ public interface UserProvider {
      * @return An {@link Optional} containing the located user, or {@link Optional#empty()} if not found
      */
     Optional<User> getUser(Long userId);
+    List<User> getUsersOlderThan(LocalDate date);
 
     /**
      * Retrieves a user based on their email.
@@ -22,6 +24,7 @@ public interface UserProvider {
      * @return An {@link Optional} containing the located user, or {@link Optional#empty()} if not found
      */
     Optional<User> getUserByEmail(String email);
+    List<User> getUserByEmailIgnoreCase(String email);
 
     /**
      * Retrieves all users.
